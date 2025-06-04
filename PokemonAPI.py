@@ -1,14 +1,14 @@
 [
     {
-        "title":"Death Note: Relight",
-        "episodes":2,
-        "score":7.71,
+        "title":"Death Note",
+        "episodes":37,
+        "score":8.62,
         "status":"Finished Airing",
-        "year":null,
+        "year":2006,
         "genres":[
             "Supernatural",
             "Suspense"
         ],
-        "synopsis":"When approached by a fellow death god tempted to visit the human realm, Ryuk recounts his own journey to the other side and the story of Light Yagami—a brilliant young man who impressed him there. \n\nOne day at school, Light stumbles upon Ryuk's lost Death Note and realizes it is not an ordinary notebook. He learns that it has the ability to kill every person whose name is written inside, provided that the user can visualize the victim's face. Having long deplored the decadence of current society, Light believes this sinister weapon offers him an unexpected opportunity: to eradicate all evil and bring about a new ideal world.\n\nFollowing a string of fatal heart attacks, the authorities start to suspect that the alarming number of dead criminals is not coincidental. Determined to uncover the mysterious culprit, they join forces with L, an internationally renowned detective. As the death count escalates, Light and L clash in a breathtaking confrontation of wits and deception—a duel that will decide the future of humanity.\n\n[Written by MAL Rewrite]"
+        "synopsis":"Brutal murders, petty thefts, and senseless violence pollute the human world. In contrast, the realm of death gods is a humdrum, unchanging gambling den. The ingenious 17-year-old Japanese student Light Yagami and sadistic god of death Ryuk share one belief: their worlds are rotten.\n\nFor his own amusement, Ryuk drops his Death Note into the human world. Light stumbles upon it, deeming the first of its rules ridiculous: the human whose name is written in this note shall die. However, the temptation is too great, and Light experiments by writing a felon's name, which disturbingly enacts his first murder.\n\nAware of the terrifying godlike power that has fallen into his hands, Light—under the alias Kira—follows his wicked sense of justice with the ultimate goal of cleansing the world of all evil-doers. The meticulous mastermind detective L is already on his trail, but as Light's brilliance rivals L's, the grand chase for Kira turns into an intense battle of wits that can only end when one of them is dead.\n\n[Written by MAL Rewrite]"
     }
 ]
