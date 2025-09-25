@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Càlcul del pes d'un objecte en un planeta</title>
+    <link rel="stylesheet" href="./styles/styles.css"/>
+
+</head>
+<body>
+
+    <h1>Càlcul del pes d'un objecte en un planeta</h1>
+
+    <div class="container">
+        <select id="seleccionaPlaneta">
+            <option value="venus">Venus</option>
+            <option value="terra" selected>Terra</option>
+            <option value="mart">Mart</option>
+            <option value="jupiter">Jupiter</option>
+        </select>
+
+        <input type="number" id="entradaPes" placeholder="Pes a la Terra (kg)">
+
+        <button id="calculBtn">Calcula el pes</button>
+    </div>
+
+    <img id="imatgePlaneta" class="imatge-planeta" src="./images/terra.png" alt="Imatge del planeta">
+    
+    <p id="resultat">El pes d'aquest element és:</p>
+
+</body>
+
+</html>
+

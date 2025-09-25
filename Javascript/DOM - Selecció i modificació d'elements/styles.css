@@ -1,0 +1,16 @@
+
+
+.invisible {
+  visibility:hidden;
+}
+
+.gran {
+  font-size: 10rem;
+  font-weight: bold;
+  color: chocolate;
+}
+
+div a {
+  display:block;
+  margin:10px;
+}

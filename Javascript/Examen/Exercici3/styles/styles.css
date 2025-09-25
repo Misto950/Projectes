@@ -1,0 +1,61 @@
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    margin: 0;
+    padding: 20px;
+    background-color: #f4f4f4;
+    transition: background-color 0.8s ease-in-out;
+}
+
+h1 {
+    font-size: 2em;
+    margin-bottom: 20px;
+}
+
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+button {
+    padding: 10px 20px;
+    font-size: 1.2em;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    color: white;
+    transition: transform 0.2s;
+}
+
+/* Colors dels botons */
+.vermell { background-color: red; }
+.blau { background-color: blue; }
+.verd { background-color: green; }
+.groc { background-color: yellow; color: black; }
+.taronja { background-color: orange; }
+.lila { background-color: purple; }
+
+button:hover {
+    transform: scale(1.1);
+}
+
+/* Botó aleatori */
+#botoRandom {
+    background-color: black;
+    color: white;
+    margin-top: 20px;
+}
+
+#colorSeleccionat {
+    font-size: 1.2em;
+    font-weight: bold;
+    margin-top: 20px;
+    background-color: white; /* Fons blanc */
+    padding: 10px;
+    border-radius: 5px;
+    display: inline-block;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+}
