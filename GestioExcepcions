@@ -1,0 +1,93 @@
+from pathlib import Path
+import logging
+import json
+
+def readUserInput():
+    directory_path = input("Escriu la ruta al directori: ")
+    return Path(directory_path)
+
+def find_json_files(directory_path):
+    if not directory_path.is_dir():
+        logging.error(f"El camí proporcionat no és un directori: {directory_path}")
+        print("El camí proporcionat no és un directori. Torna a intentar-ho.")
+        directory_path = readUserInput()
+        find_json_files(directory_path)
+    
+    json_files = list(directory_path.glob("*.json"))
+    
+    return json_files
+
+def is_valid_ip(ip):
+    parts = ip.split(".")
+    if len(parts) != 4:
+        return False
+    for part in parts:
+        if not part.isdigit() or not (0 <= int(part) <= 255):
+            return False
+    return True
+
+def read_json_files(json_files):
+    keys = {"hostname", "ip_address", "cpu", "memory_gb", "os"}
+    valid_servers = []
+    total_cpus = 0
+    total_memory = 0
+    os_list = []
+    
+    for json_file in json_files:
+        try:
+            with open(json_file, 'r', encoding='utf-8') as file:
+                data = json.load(file)
+                
+                if not keys.issubset(data.keys()):
+                    msg = f"Falten claus requerides en {json_file}"
+                    logging.warning(msg)
+                    print(msg)
+                elif not is_valid_ip(data["ip_address"]):
+                    msg = f"Adreça IP no vàlida en {json_file}"
+                    logging.warning(msg)
+                    print(msg)
+                else:
+                    valid_servers.append(data)
+                    total_cpus += data["cpu"]
+                    total_memory += data["memory_gb"]
+                    os_list.append(data["os"])
+                    logging.info(f"Fitxer processat correctament: {json_file}")
+        
+        except FileNotFoundError:
+            logging.error(f"Fitxer no trobat: {json_file}")
+            print(f"Error: No s'ha trobat el fitxer {json_file}")
+        except json.JSONDecodeError:
+            logging.error(f"Error en la decodificació JSON: {json_file}")
+            print(f"Error: Problema en la decodificació JSON en {json_file}")
+        except KeyError as e:
+            logging.error(f"Clau {e} mancant en el fitxer: {json_file}")
+            print(f"Error: Clau {e} mancant en {json_file}")
+        except Exception as e:
+            logging.error(f"Error inesperat en {json_file}: {e}")
+            print(f"Error inesperat en {json_file}: {e}")
+    
+    if valid_servers:
+        num_valid_servers = len(valid_servers)
+        avg_cpus = total_cpus / num_valid_servers
+        avg_memory = total_memory / num_valid_servers
+        
+        resumen = (f"\nResum de configuració:\n"
+                   f"Nombre total de configuracions vàlides: {num_valid_servers}\n"
+                   f"Total CPUs: {total_cpus}, Mitjana CPUs: {avg_cpus:.2f}\n"
+                   f"Total Memòria (GB): {total_memory}, Mitjana Memòria (GB): {avg_memory:.2f}\n"
+                   f"Sistemes operatius únics: {', '.join(os_list)}")
+        
+        logging.info(resumen)
+        print(resumen)
+    else:
+        logging.info("No s'ha trobat cap configuració vàlida.")
+        print("No s'ha trobat cap configuració vàlida.")
+
+def main():
+    logging.basicConfig(filename='agregator.log', level=logging.INFO)
+    directory_path = readUserInput()
+    json_files = find_json_files(directory_path)
+    read_json_files(json_files)
+
+
+main()
